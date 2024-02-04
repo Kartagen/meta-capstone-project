@@ -1,7 +1,7 @@
-import logo from "../img/icons_assets/Logo.svg"
+import logo from "../../img/icons_assets/Logo.svg"
 function Header() {
     return (
-        <>
+        <header>
             <a><img alt={"logo"} src={logo}/></a>
             <nav>
                 <ul>
@@ -22,7 +22,7 @@ function Header() {
                     </li>
                 </ul>
             </nav>
-        </>
+        </header>
     );
 }
 
