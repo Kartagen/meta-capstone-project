@@ -1,24 +1,25 @@
 import logo from "../../img/icons_assets/Logo.svg"
+import {Link} from "react-router-dom";
 function Header() {
     return (
         <header>
-            <a><img alt={"logo"} src={logo}/></a>
+            <Link to={"/"}><img alt={"logo"} src={logo}/></Link>
             <nav>
                 <ul>
                     <li>
-                        <a>About</a>
+                        <Link to={"/"}>About</Link>
                     </li>
                     <li>
-                        <a>Menu</a>
+                        <Link to={"/"}>Menu</Link>
                     </li>
                     <li>
-                        <a>Reservations</a>
+                        <Link to={"/"}>Reservations</Link>
                     </li>
                     <li>
-                        <a>Order Online</a>
+                        <Link to={"/"}>Order Online</Link>
                     </li>
                     <li>
-                        <a>Login</a>
+                        <Link to={"/"}>Login</Link>
                     </li>
                 </ul>
             </nav>
