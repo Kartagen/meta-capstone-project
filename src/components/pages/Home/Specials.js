@@ -30,10 +30,10 @@ const meals = [
 ];
 const Specials = () =>{
     return(
-        <section>
-            <div>
+        <section className={"center grid specials"}>
+            <div className={"specialsHeader"}>
                 <h2>This week specials!</h2>
-                <Link>Menu</Link>
+                <Link className={"btn"}>Menu</Link>
             </div>
             {meals.map((meal, index)=>
                 <Meal meal={meal} key={index}/>

@@ -31,8 +31,8 @@ const customers = [
 ];
 const Reviews = () => {
     return (
-        <section>
-            <div>
+        <section className={"reviews"}>
+            <div className={"center grid"}>
                 <h2>What people say about us!</h2>
                 {customers.map((customer, index) =>
                     <Review key={index} customer={customer} />
