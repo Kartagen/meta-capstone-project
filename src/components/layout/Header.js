@@ -8,19 +8,19 @@ function Header() {
             <nav>
                 <ul>
                     <li>
-                        <Link to={"/"}>About</Link>
+                        <Link to={"/about"}>About</Link>
                     </li>
                     <li>
-                        <Link to={"/"}>Menu</Link>
+                        <Link to={"/menu"}>Menu</Link>
                     </li>
                     <li>
-                        <Link to={"/"}>Reservations</Link>
+                        <Link to={"/booking"}>Reservations</Link>
                     </li>
                     <li>
-                        <Link to={"/"}>Order Online</Link>
+                        <Link to={"/order"}>Order Online</Link>
                     </li>
                     <li>
-                        <Link to={"/"}>Login</Link>
+                        <Link to={"/login"}>Login</Link>
                     </li>
                 </ul>
             </nav>

@@ -1,37 +1,46 @@
 import FormField from "../../utils/FormField";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-function BookingForm() {
+function BookingForm({availableTimes, dispatchOnDateChange, submitData}) {
     const [bookingData, setBookingData] = useState({
-        date:"",
-        time:"",
-        guests:"",
-        occasion:""
+        date: "",
+        time: "",
+        guests: "",
+        occasion: ""
     });
+    const isDateValid = () => bookingData.date !== '';
+    const isTimeValid = () => bookingData.time !== '';
+    const isNumberOfGuestsValid = () => bookingData.guests !== '';
+    const isOccasionValid = () => bookingData.occasion !== '';
+    const areAllFieldsValid = () =>
+        isDateValid()
+        && isTimeValid()
+        && isNumberOfGuestsValid()
+        && isOccasionValid();
+    useEffect(()=>{
+        console.log(availableTimes)
+    })
     const occasions = ['Birthday', 'Anniversary'];
     const datetime = new Date();
-    const handleChangeDate = (e) =>{
-        setBookingData(bookingData=>{
-            return {...bookingData,date:e.target.value}
-        })
+    const handleChangeDate = (e) => {
+        setBookingData({...bookingData, date: e.target.value})
+        dispatchOnDateChange(e.target.value)
     }
-    const handleChangeTime = (e) =>{
-        setBookingData(bookingData=>{
-            return {...bookingData,time:e.target.value}
-        })
+    const handleChangeTime = (e) => {
+        setBookingData({...bookingData, time: e.target.value})
     }
-    const handleChangeGuests = (e) =>{
-        setBookingData(bookingData=>{
-            return {...bookingData,guests:e.target.value}
-        })
+    const handleChangeGuests = (e) => {
+        setBookingData({...bookingData, guests: e.target.value})
     }
-    const handleChangeType = (e) =>{
-        setBookingData(bookingData=>{
-            return {...bookingData,occasion:e.target.value}
-        })
+    const handleChangeType = (e) => {
+        setBookingData( {...bookingData, occasion: e.target.value})
     }
+    const handleFormSubmit = e => {
+        e.preventDefault();
+        submitData(bookingData);
+    };
     return (
-        <form>
+        <form onSubmit={handleFormSubmit}>
             <FormField
                 label="Date of reservation"
                 htmlFor={"booking-date"}
@@ -52,15 +61,17 @@ function BookingForm() {
                 htmlFor={"booking-time"}
 
             >
-                <input
+                <select
                     id="booking-time"
                     name="booking-time"
-                    type="time"
-                    min={datetime.getTime()}
                     required
                     value={bookingData.time}
                     onChange={handleChangeTime}
-                />
+                >
+                    {availableTimes.map((time)=>
+                        <option key={time}>{time}</option>
+                    )}
+                </select>
             </FormField>
             <FormField
                 label="Number of guests"
@@ -96,6 +107,13 @@ function BookingForm() {
                     )}
                 </select>
             </FormField>
+            <button
+                className="btn"
+                type="submit"
+                disabled={!areAllFieldsValid()}
+            >
+                Make the reservation
+            </button>
         </form>
     );
 }
