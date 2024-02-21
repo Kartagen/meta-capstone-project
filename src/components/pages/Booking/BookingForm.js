@@ -2,11 +2,12 @@ import FormField from "../../utils/FormField";
 import {useEffect, useState} from "react";
 
 function BookingForm({availableTimes, dispatchOnDateChange, submitData}) {
+    const datetime = new Date().toISOString().split('T')[0];
     const [bookingData, setBookingData] = useState({
-        date: "",
-        time: "",
-        guests: "",
-        occasion: ""
+        date: datetime,
+        time: availableTimes[0],
+        guests: "1",
+        occasion: 'Birthday'
     });
     const isDateValid = () => bookingData.date !== '';
     const isTimeValid = () => bookingData.time !== '';
@@ -17,11 +18,8 @@ function BookingForm({availableTimes, dispatchOnDateChange, submitData}) {
         && isTimeValid()
         && isNumberOfGuestsValid()
         && isOccasionValid();
-    useEffect(()=>{
-        console.log(availableTimes)
-    })
     const occasions = ['Birthday', 'Anniversary'];
-    const datetime = new Date();
+    const errors = ['Please choose a valid date', 'Please choose a valid time','Please enter a number between 1 and 10','Please choose a valid occasion'];
     const handleChangeDate = (e) => {
         setBookingData({...bookingData, date: e.target.value})
         dispatchOnDateChange(e.target.value)
@@ -44,13 +42,14 @@ function BookingForm({availableTimes, dispatchOnDateChange, submitData}) {
             <FormField
                 label="Date of reservation"
                 htmlFor={"booking-date"}
-
+                hasError={!isDateValid()}
+                errorMessage={errors[0]}
             >
                 <input
                     id="booking-date"
                     name="booking-date"
                     type="date"
-                    min={datetime.getDate()}
+                    min={datetime}
                     required
                     value={bookingData.date}
                     onChange={handleChangeDate}
@@ -59,7 +58,8 @@ function BookingForm({availableTimes, dispatchOnDateChange, submitData}) {
             <FormField
                 label="Time of reservation"
                 htmlFor={"booking-time"}
-
+                hasError={!isTimeValid()}
+                errorMessage={errors[1]}
             >
                 <select
                     id="booking-time"
@@ -69,18 +69,19 @@ function BookingForm({availableTimes, dispatchOnDateChange, submitData}) {
                     onChange={handleChangeTime}
                 >
                     {availableTimes.map((time)=>
-                        <option key={time}>{time}</option>
+                        <option data-testid="booking-time-option" key={time}>{time}</option>
                     )}
                 </select>
             </FormField>
             <FormField
                 label="Number of guests"
-                htmlFor={"booking-guests"}
-
+                htmlFor="booking-number-guests"
+                hasError={!isNumberOfGuestsValid()}
+                errorMessage={errors[2]}
             >
                 <input
-                    id="booking-guests"
-                    name="booking-guests"
+                    id="booking-number-guests"
+                    name="booking-number-guests"
                     type="number"
                     min={0}
                     max={10}
@@ -92,7 +93,8 @@ function BookingForm({availableTimes, dispatchOnDateChange, submitData}) {
             <FormField
                 label="Occasion type"
                 htmlFor={"booking-occasion"}
-
+                hasError={!isOccasionValid()}
+                errorMessage={errors[3]}
             >
                 <select
                     id="booking-occasion"
