@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/meta-capstone-project/static/css/main.d1dfdb15.css",
-    "main.js": "/meta-capstone-project/static/js/main.510d55fa.js",
+    "main.js": "/meta-capstone-project/static/js/main.7a4cdf5b.js",
     "static/media/Mario and Adrian A.jpg": "/meta-capstone-project/static/media/Mario and Adrian A.7f44c6d6e341a27d14b3.jpg",
     "static/media/Mario and Adrian b.jpg": "/meta-capstone-project/static/media/Mario and Adrian b.6ba0e06bfa9c1ea75109.jpg",
     "static/media/bruchetta.svg": "/meta-capstone-project/static/media/bruchetta.29ea078fea3d3120ed22402e901b5bbc.svg",
@@ -11,10 +11,10 @@
     "static/media/Logo.svg": "/meta-capstone-project/static/media/Logo.6c132dfefa69396bba43f72aa595e62f.svg",
     "index.html": "/meta-capstone-project/index.html",
     "main.d1dfdb15.css.map": "/meta-capstone-project/static/css/main.d1dfdb15.css.map",
-    "main.510d55fa.js.map": "/meta-capstone-project/static/js/main.510d55fa.js.map"
+    "main.7a4cdf5b.js.map": "/meta-capstone-project/static/js/main.7a4cdf5b.js.map"
   },
   "entrypoints": [
     "static/css/main.d1dfdb15.css",
-    "static/js/main.510d55fa.js"
+    "static/js/main.7a4cdf5b.js"
   ]
 }
