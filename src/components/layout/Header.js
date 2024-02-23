@@ -4,23 +4,23 @@ import "./Layout.css"
 function Header() {
     return (
         <header>
-            <Link to={"/"}><img alt={"logo"} src={logo}/></Link>
+            <Link to={"/meta-capstone-project/"}><img alt={"logo"} src={logo}/></Link>
             <nav>
                 <ul>
                     <li>
-                        <Link to={"/about"}>About</Link>
+                        <Link to={"/meta-capstone-project/about"}>About</Link>
                     </li>
                     <li>
-                        <Link to={"/menu"}>Menu</Link>
+                        <Link to={"/meta-capstone-project/menu"}>Menu</Link>
                     </li>
                     <li>
-                        <Link to={"/booking"}>Reservations</Link>
+                        <Link to={"/meta-capstone-project/booking"}>Reservations</Link>
                     </li>
                     <li>
-                        <Link to={"/order"}>Order Online</Link>
+                        <Link to={"/meta-capstone-project/order"}>Order Online</Link>
                     </li>
                     <li>
-                        <Link to={"/login"}>Login</Link>
+                        <Link to={"/meta-capstone-project/login"}>Login</Link>
                     </li>
                 </ul>
             </nav>
