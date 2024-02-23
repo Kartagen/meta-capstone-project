@@ -13,14 +13,14 @@ function App() {
       <Header/>
       <main>
           <Routes>
-              <Route path="/" element={<Home/>}/>
-              <Route path="/booking" element={<BookingPage/>}/>
-              <Route path="/booking/confirm" element={<BookingConfirm/>}/>
-              <Route path="/order" element={<WorkingOnIt/>}/>
-              <Route path="/about" element={<WorkingOnIt/>}/>
-              <Route path="/menu" element={<WorkingOnIt/>}/>
-              <Route path="/login" element={<WorkingOnIt/>}/>
-              <Route path="*" element={<WorkingOnIt/>}/>
+              <Route path="/meta-capstone-project/" element={<Home/>}/>
+              <Route path="/meta-capstone-project/booking" element={<BookingPage/>}/>
+              <Route path="/meta-capstone-project/booking/confirm" element={<BookingConfirm/>}/>
+              <Route path="/meta-capstone-project/order" element={<WorkingOnIt/>}/>
+              <Route path="/meta-capstone-project/about" element={<WorkingOnIt/>}/>
+              <Route path="/meta-capstone-project/menu" element={<WorkingOnIt/>}/>
+              <Route path="/meta-capstone-project/login" element={<WorkingOnIt/>}/>
+              <Route path="/meta-capstone-project/*" element={<WorkingOnIt/>}/>
           </Routes>
       </main>
       <Footer/>
